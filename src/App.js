@@ -4,13 +4,9 @@ import "./App.css";
 function App() {
   const [spaceData, setSpaceData] = useState([]);
   useEffect(() => {
-    try {
-      fetch("https://www.spaceflightnewsapi.net/api/v2/articles")
-        .then((response) => response.json())
-        .then((data) => setSpaceData(data));
-    } catch (e) {
-      console.log(e);
-    }
+    fetch("https://api.spaceflightnewsapi.net/v3/articles")
+      .then((response) => response.json())
+      .then((data) => setSpaceData(data));
   }, []);
   return (
     <div className="App">
